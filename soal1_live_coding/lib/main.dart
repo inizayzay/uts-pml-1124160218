@@ -78,7 +78,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'NIM: 12345678',
+                  'NIM: 1124160218',
                   style: textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
