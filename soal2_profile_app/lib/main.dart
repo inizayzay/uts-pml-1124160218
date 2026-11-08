@@ -767,9 +767,9 @@ class AboutMeView extends StatelessWidget {
                   backgroundColor: colorScheme.surfaceVariant,
                   child: const Icon(Icons.sports_esports_outlined),
                 ),
-                title: const Text('Gaming & Reading Tech Articles'),
+                title: const Text('AI Engineering'),
                 subtitle: const Text(
-                  'Mengikuti tren teknologi terkini dan bermain game strategi.',
+                  'Merancang & Melatih AI sesuai kebutuhan Bisnis',
                 ),
               ),
             ],
