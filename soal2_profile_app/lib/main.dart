@@ -17,6 +17,7 @@ class UserProfile {
   String email;
   String phone;
   String github;
+  String linkedin;
 
   UserProfile({
     required this.name,
@@ -25,6 +26,7 @@ class UserProfile {
     required this.email,
     required this.phone,
     required this.github,
+    required this.linkedin,
   });
 
   UserProfile copyWith({
@@ -34,6 +36,7 @@ class UserProfile {
     String? email,
     String? phone,
     String? github,
+    String? linkedin,
   }) {
     return UserProfile(
       name: name ?? this.name,
@@ -42,6 +45,7 @@ class UserProfile {
       email: email ?? this.email,
       phone: phone ?? this.phone,
       github: github ?? this.github,
+      linkedin: linkedin ?? this.linkedin,
     );
   }
 }
@@ -270,6 +274,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     email: 'zackyzalfa6@gmail.com',
     phone: '08953937256333',
     github: 'https://github.com/inizayzay',
+    linkedin: 'https://www.linkedin.com/in/zackyzalfa/',
   );
 
   // Navigasi ke Halaman Edit Profil (Point 3)
@@ -521,6 +526,15 @@ class ProfileView extends StatelessWidget {
                     title: const Text('Akun GitHub'),
                     subtitle: Text(profile.github),
                   ),
+                  const Divider(height: 1),
+                  ListTile(
+                    leading: Icon(
+                      Icons.link,
+                      color: colorScheme.primary,
+                    ),
+                    title: const Text('LinkedIn'),
+                    subtitle: Text(profile.linkedin),
+                  ),
                 ],
               ),
             ),
@@ -552,6 +566,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late final TextEditingController _emailController;
   late final TextEditingController _phoneController;
   late final TextEditingController _githubController;
+  late final TextEditingController _linkedinController;
 
   @override
   void initState() {
@@ -564,6 +579,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _githubController = TextEditingController(
       text: widget.currentProfile.github,
     );
+    _linkedinController = TextEditingController(
+      text: widget.currentProfile.linkedin,
+    );
   }
 
   @override
@@ -573,6 +591,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _emailController.dispose();
     _phoneController.dispose();
     _githubController.dispose();
+    _linkedinController.dispose();
     super.dispose();
   }
 
@@ -584,6 +603,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         email: _emailController.text.trim(),
         phone: _phoneController.text.trim(),
         github: _githubController.text.trim(),
+        linkedin: _linkedinController.text.trim(),
       );
 
       // Navigator.pop kembali dengan data baru (Point 3)
@@ -684,6 +704,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     labelText: 'Akun GitHub',
                     hintText: 'https://github.com/username',
                     prefixIcon: Icon(Icons.code),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                TextFormField(
+                  controller: _linkedinController,
+                  decoration: const InputDecoration(
+                    labelText: 'LinkedIn',
+                    hintText: 'https://www.linkedin.com/in/username',
+                    prefixIcon: Icon(Icons.link),
                     border: OutlineInputBorder(),
                   ),
                 ),
