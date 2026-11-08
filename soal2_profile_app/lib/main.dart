@@ -661,7 +661,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   keyboardType: TextInputType.phone,
                   decoration: const InputDecoration(
                     labelText: 'Nomor HP *',
-                    hintText: 'Contoh: 081234567890',
+                    hintText: 'Contoh: 0895393725633',
                     prefixIcon: Icon(Icons.phone),
                     border: OutlineInputBorder(),
                   ),
