@@ -765,7 +765,10 @@ class AboutMeView extends StatelessWidget {
               ListTile(
                 leading: CircleAvatar(
                   backgroundColor: colorScheme.surfaceVariant,
-                  child: const Icon(Icons.sports_esports_outlined),
+                  child: Icon(
+                    Icons.psychology_outlined,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
                 ),
                 title: const Text('AI Engineering'),
                 subtitle: const Text(
