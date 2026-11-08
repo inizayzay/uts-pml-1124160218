@@ -268,7 +268,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     nim: '1124160218',
     prodi: 'Teknik Informatika',
     email: 'zackyzalfa6@gmail.com',
-    phone: '081234567890',
+    phone: '08953937256333',
     github: 'https://github.com/inizayzay',
   );
 
