@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 // Notifier global untuk mengubah tema secara dinamis (Point 6)
-final ValueNotifier<ThemeMode> themeModeNotifier =
-    ValueNotifier(ThemeMode.light);
+final ValueNotifier<ThemeMode> themeModeNotifier = ValueNotifier(
+  ThemeMode.light,
+);
 
 void main() {
   runApp(const MyApp());
@@ -140,7 +141,10 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 32.0,
+            ),
             child: Form(
               key: _formKey,
               child: Column(
@@ -228,7 +232,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: const Text(
                       'Masuk',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -295,10 +302,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
-    final pages = [
-      ProfileView(profile: _userProfile),
-      const AboutMeView(),
-    ];
+    final pages = [ProfileView(profile: _userProfile), const AboutMeView()];
 
     return Scaffold(
       appBar: AppBar(
@@ -306,11 +310,14 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
         actions: [
           // Switch cepat Mode Gelap / Terang di AppBar (Point 6)
           IconButton(
-            tooltip: isDarkMode ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap',
+            tooltip: isDarkMode
+                ? 'Beralih ke Mode Terang'
+                : 'Beralih ke Mode Gelap',
             icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
             onPressed: () {
-              themeModeNotifier.value =
-                  isDarkMode ? ThemeMode.light : ThemeMode.dark;
+              themeModeNotifier.value = isDarkMode
+                  ? ThemeMode.light
+                  : ThemeMode.dark;
             },
           ),
         ],
@@ -361,13 +368,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             SwitchListTile(
               title: const Text('Mode Gelap'),
               subtitle: const Text('Ubah tema aplikasi'),
-              secondary: Icon(
-                isDarkMode ? Icons.dark_mode : Icons.light_mode,
-              ),
+              secondary: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode),
               value: isDarkMode,
               onChanged: (bool value) {
-                themeModeNotifier.value =
-                    value ? ThemeMode.dark : ThemeMode.light;
+                themeModeNotifier.value = value
+                    ? ThemeMode.dark
+                    : ThemeMode.light;
               },
             ),
             const Divider(),
@@ -462,9 +468,7 @@ class ProfileView extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               'NIM: ${profile.nim}',
-              style: textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
+              style: textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 4),
@@ -492,19 +496,28 @@ class ProfileView extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.email_outlined, color: colorScheme.primary),
+                    leading: Icon(
+                      Icons.email_outlined,
+                      color: colorScheme.primary,
+                    ),
                     title: const Text('Email'),
                     subtitle: Text(profile.email),
                   ),
                   const Divider(height: 1),
                   ListTile(
-                    leading: Icon(Icons.phone_outlined, color: colorScheme.primary),
+                    leading: Icon(
+                      Icons.phone_outlined,
+                      color: colorScheme.primary,
+                    ),
                     title: const Text('Nomor HP'),
                     subtitle: Text(profile.phone),
                   ),
                   const Divider(height: 1),
                   ListTile(
-                    leading: Icon(Icons.code_outlined, color: colorScheme.primary),
+                    leading: Icon(
+                      Icons.code_outlined,
+                      color: colorScheme.primary,
+                    ),
                     title: const Text('Akun GitHub'),
                     subtitle: Text(profile.github),
                   ),
@@ -548,8 +561,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _prodiController = TextEditingController(text: widget.currentProfile.prodi);
     _emailController = TextEditingController(text: widget.currentProfile.email);
     _phoneController = TextEditingController(text: widget.currentProfile.phone);
-    _githubController =
-        TextEditingController(text: widget.currentProfile.github);
+    _githubController = TextEditingController(
+      text: widget.currentProfile.github,
+    );
   }
 
   @override
@@ -580,9 +594,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Profil'),
-      ),
+      appBar: AppBar(title: const Text('Edit Profil')),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
@@ -633,7 +645,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       return 'Email wajib diisi';
                     }
                     final emailRegex = RegExp(
-                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+                      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                    );
                     if (!emailRegex.hasMatch(value.trim())) {
                       return 'Format email tidak valid';
                     }
@@ -711,9 +724,7 @@ class AboutMeView extends StatelessWidget {
         // Bagian 1: Keahlian / Hobi (Minimal 3 item)
         Text(
           'Keahlian & Hobi',
-          style: textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Card(
@@ -726,14 +737,14 @@ class AboutMeView extends StatelessWidget {
                 ),
                 title: const Text('Flutter & Mobile Development'),
                 subtitle: const Text(
-                    'Mengembangkan aplikasi mobile Android & iOS dengan Flutter.'),
+                  'Mengembangkan aplikasi mobile Android & iOS dengan Flutter.',
+                ),
               ),
               const Divider(height: 1),
               ListTile(
                 leading: CircleAvatar(
                   backgroundColor: colorScheme.secondaryContainer,
-                  child:
-                      Icon(Icons.code_rounded, color: colorScheme.secondary),
+                  child: Icon(Icons.code_rounded, color: colorScheme.secondary),
                 ),
                 title: const Text('Web & Backend Development'),
                 subtitle: const Text('REST API, PHP, Laravel, dan MySQL.'),
@@ -742,12 +753,15 @@ class AboutMeView extends StatelessWidget {
               ListTile(
                 leading: CircleAvatar(
                   backgroundColor: colorScheme.tertiaryContainer,
-                  child: Icon(Icons.palette_outlined,
-                      color: colorScheme.tertiary),
+                  child: Icon(
+                    Icons.palette_outlined,
+                    color: colorScheme.tertiary,
+                  ),
                 ),
                 title: const Text('UI/UX Design'),
                 subtitle: const Text(
-                    'Merancang antarmuka aplikasi yang responsif dan rapi di Figma.'),
+                  'Merancang antarmuka aplikasi yang responsif dan rapi di Figma.',
+                ),
               ),
               const Divider(height: 1),
               ListTile(
@@ -757,7 +771,8 @@ class AboutMeView extends StatelessWidget {
                 ),
                 title: const Text('Gaming & Reading Tech Articles'),
                 subtitle: const Text(
-                    'Mengikuti tren teknologi terkini dan bermain game strategi.'),
+                  'Mengikuti tren teknologi terkini dan bermain game strategi.',
+                ),
               ),
             ],
           ),
@@ -768,9 +783,7 @@ class AboutMeView extends StatelessWidget {
         // Bagian 2: Riwayat Pendidikan
         Text(
           'Riwayat Pendidikan',
-          style: textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Card(
@@ -791,7 +804,9 @@ class AboutMeView extends StatelessWidget {
                   child: Icon(Icons.history_edu, color: colorScheme.secondary),
                 ),
                 title: const Text('SMA / SMK'),
-                subtitle: const Text('Jurusan IPA / Rekayasa Perangkat Lunak • 2021 - 2024'),
+                subtitle: const Text(
+                  'Jurusan IPA / Rekayasa Perangkat Lunak • 2021 - 2024',
+                ),
               ),
               const Divider(height: 1),
               ListTile(
