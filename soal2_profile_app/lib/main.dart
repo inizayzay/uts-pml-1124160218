@@ -735,10 +735,8 @@ class AboutMeView extends StatelessWidget {
                   backgroundColor: colorScheme.primaryContainer,
                   child: Icon(Icons.phone_android, color: colorScheme.primary),
                 ),
-                title: const Text('Flutter & Mobile Development'),
-                subtitle: const Text(
-                  'Mengembangkan aplikasi mobile Android & iOS dengan Flutter.',
-                ),
+                title: const Text('Mobile & Frontend Development'),
+                subtitle: const Text('Flutter, NextJs, JQuery, NuxtJs.'),
               ),
               const Divider(height: 1),
               ListTile(
@@ -803,19 +801,8 @@ class AboutMeView extends StatelessWidget {
                   backgroundColor: colorScheme.secondaryContainer,
                   child: Icon(Icons.history_edu, color: colorScheme.secondary),
                 ),
-                title: const Text('SMA / SMK'),
-                subtitle: const Text(
-                  'Jurusan IPA / Rekayasa Perangkat Lunak • 2021 - 2024',
-                ),
-              ),
-              const Divider(height: 1),
-              ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: colorScheme.tertiaryContainer,
-                  child: Icon(Icons.menu_book, color: colorScheme.tertiary),
-                ),
-                title: const Text('Sekolah Menengah Pertama (SMP)'),
-                subtitle: const Text('2018 - 2021'),
+                title: const Text('SMK Negeri Kabupaten Tangerang'),
+                subtitle: const Text('Desain Komunikasi Visual • 2021 - 2024'),
               ),
             ],
           ),
