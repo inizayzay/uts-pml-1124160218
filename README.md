@@ -1,0 +1,3 @@
+NAMA : ZACKY ZALFA FAHRUR ROZY
+NIM : 1124160218
+PRESENTASI : https://youtu.be/zLQedkL5eRg?si=ZMKde31apgBqksOH
